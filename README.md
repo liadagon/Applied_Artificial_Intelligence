@@ -4,7 +4,7 @@ This project analyzes a bank's direct-marketing campaign data and builds binary 
 
 ## Dataset
 
-The project uses the **Bank Marketing** dataset, specifically the complete `bank-full.csv` file with 45,211 campaign records. The data describes phone-based direct-marketing campaigns by a Portuguese banking institution. It was created by Paulo Cortez and Sérgio Moro and is distributed through the UCI Machine Learning Repository; the included `bank/bank-names.txt` file provides the dataset description and citation details.
+The project uses the **Bank Marketing** dataset, specifically the complete `bank-full.csv` file with 45,211 campaign records. The data describes phone-based direct-marketing campaigns by a Portuguese banking institution. It was created by Paulo Cortez and Sérgio Moro and is distributed through the UCI Machine Learning Repository at <https://archive.ics.uci.edu/dataset/222/bank+marketing>; the included `bank/bank-names.txt` file provides the dataset description and citation details.
 
 The target variable is `y`:
 
@@ -25,7 +25,6 @@ The main pre-call model excludes `duration`, because the duration of a future ca
 Use a recent Python 3 environment with Jupyter and the main libraries used by the notebook:
 
 - pandas
-- NumPy
 - Matplotlib
 - seaborn
 - scikit-learn
@@ -34,8 +33,10 @@ Use a recent Python 3 environment with Jupyter and the main libraries used by th
 For example:
 
 ```bash
-python -m pip install jupyter pandas numpy matplotlib seaborn scikit-learn
+python -m pip install jupyter pandas matplotlib seaborn scikit-learn
 ```
+
+NumPy is installed automatically as a dependency of pandas and scikit-learn; the notebook does not import it directly.
 
 ## Running the notebook
 
