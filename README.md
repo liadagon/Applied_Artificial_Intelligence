@@ -47,6 +47,19 @@ NumPy is installed automatically as a dependency of pandas and scikit-learn; the
 
 The recommended execution order is Parts A through J. Run the notebook from top to bottom because later sections reuse the cleaned data, preprocessing objects, fitted models, and predictions created in earlier sections.
 
+## Results summary
+
+Both models were evaluated on the same stratified test set of 9,043 clients, using the pre-call feature set that excludes `duration`.
+
+| Model | Accuracy | Precision | Recall | F1-score |
+| --- | --- | --- | --- | --- |
+| Decision Tree | 0.7958 | 0.3005 | 0.5614 | 0.3914 |
+| kNN (k = 5) | 0.8874 | 0.5529 | 0.1975 | 0.2911 |
+
+**Recommended model: Decision Tree.** Only 11.70% of clients subscribed, so accuracy alone is misleading. kNN reaches the higher accuracy while finding just 209 of the 1,058 actual subscribers in the test set, against 594 for the Decision Tree. The Decision Tree therefore achieves the higher recall (0.5614 against 0.1975) and F1-score (0.3914 against 0.2911), and it is also easier to explain, because its predictions reduce to a set of rules at most five levels deep with readable feature importances. Its trade-off is a larger number of false positives (1,383 against 169), so kNN remains preferable if avoiding unnecessary contacts matters more than finding subscribers.
+
+The strongest historical segment is a successful previous campaign outcome (`poutcome = success`) at a 64.73% subscription rate across 1,511 clients, compared with an overall rate of 11.70%. These segment rates describe associations observed in past campaign data, not proven causes.
+
 ## Repository layout
 
 - `FinalProjectAppliedAI.ipynb`: complete analysis and modeling workflow
